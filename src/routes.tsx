@@ -6,6 +6,8 @@ import PrivateLayout from "./pages/layout/PrivateLayout";
 import HomePage from "./pages/HomePage";
 import PostsPage from "./pages/posts/PostsPage";
 import PostPage from "./pages/posts/PostPage";
+import ServicesPage from "./pages/posts/ServicesPage";
+import ServicePage from "./pages/posts/ServicePage";
 
 const routes = createBrowserRouter([
   {
@@ -16,6 +18,8 @@ const routes = createBrowserRouter([
       { path: "login/", element: <LoginPage /> },
       { path: "posts/", element: <PostsPage /> },
       { path: "posts/:slug", element: <PostPage /> },
+      { path: "services/", element: <ServicesPage /> },
+      { path: "services/:slug", element: <ServicePage /> },
     ],
   },
   {

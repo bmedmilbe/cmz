@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import ApiClient from "../../services/api-client";
+import ApiClient, { apiCMZEndpoint } from "../../services/api-client";
 
 const useCMZGeneralAll = <T>(endpoint: string, queryKey: string) => {
-  const apiClient = new ApiClient<T>(`cmz/${endpoint}`);
+  const apiClient = new ApiClient<T>(`${apiCMZEndpoint}/${endpoint}`);
   return useQuery({
     queryFn: apiClient.getAll,
     queryKey: [queryKey],
