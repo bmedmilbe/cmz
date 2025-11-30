@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import usePostsInfinite, {
   type PostHome,
 } from "../../hooks/cmz/usePostsInfinite";
@@ -7,6 +7,7 @@ interface Props {
   postTarget?: PostHome;
 }
 const PostList = ({ postTarget }: Props) => {
+  const navigate = useNavigate();
   const query_param = {
     search: undefined,
   };
@@ -25,7 +26,10 @@ const PostList = ({ postTarget }: Props) => {
             {p.results
               .filter((post) => post.id != postTarget?.id)
               .map((item, index) => (
-                <div className="col-sm-12 col-md-6">
+                <div
+                  className="col-sm-12 col-md-6"
+                  onClick={() => navigate(`/posts/${item.slug}`)}
+                >
                   <div key={index} className="list-post-box d-flex">
                     <img
                       src={item.picture}
@@ -37,7 +41,7 @@ const PostList = ({ postTarget }: Props) => {
                       <h5 className="card-title">{item.title}</h5>
                       <p className="card-text">{item.beginnig}</p>
                       <div className="d-flex justify-content-between">
-                        <NavLink to={`/posts/slug/?slug=${item.slug}`}>
+                        <NavLink to={`/posts/${item.slug}`}>
                           &rarr; Saber mais ...
                         </NavLink>{" "}
                         <span>{item.posted_at}</span>

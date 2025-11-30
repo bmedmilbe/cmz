@@ -1,5 +1,5 @@
-import PostList from "../components/elements/PostList";
-import Breadcrumb from "../components/layout/header/Breadcrumb";
+import PostList from "../../components/elements/PostList";
+import Breadcrumb from "../../components/layout/header/Breadcrumb";
 
 const PostsPage = () => {
   return (

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import { type Customer } from "../hooks/useCustomers";
-import useMe from "../hooks/useMe";
-import Header from "../components/layout/header/Header";
-import Breadcrumb from "../components/layout/header/Breadcrumb";
-import Footer from "../components/layout/footer/Footer";
-import MobileMenu from "../components/layout/MobileMenu";
-import SearchPopup from "../components/layout/SearchPopup";
+import { type Customer } from "../../hooks/useCustomers";
+import useMe from "../../hooks/useMe";
+import Header from "../../components/layout/header/Header";
+import Breadcrumb from "../../components/layout/header/Breadcrumb";
+import Footer from "../../components/layout/footer/Footer";
+import MobileMenu from "../../components/layout/MobileMenu";
+import SearchPopup from "../../components/layout/SearchPopup";
 interface Props {
   breadcrumbTitle?: string;
   breadcrumbImage?: string;

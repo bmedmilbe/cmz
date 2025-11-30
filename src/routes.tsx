@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "./pages/Layout";
+import Layout from "./pages/layout/Layout";
 import LoginPage from "./pages/LoginPage";
-import PrivateLayout from "./pages/PrivateLayout";
+import PrivateLayout from "./pages/layout/PrivateLayout";
 
 import HomePage from "./pages/HomePage";
-import PostsPage from "./pages/PostsPage";
+import PostsPage from "./pages/posts/PostsPage";
+import PostPage from "./pages/posts/PostPage";
 
 const routes = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const routes = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: "login/", element: <LoginPage /> },
       { path: "posts/", element: <PostsPage /> },
+      { path: "posts/:slug", element: <PostPage /> },
     ],
   },
   {

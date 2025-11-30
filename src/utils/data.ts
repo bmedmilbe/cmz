@@ -47,7 +47,7 @@ const menu = [
   },
   {
     title: "Actividades",
-    to: "/posts/posts",
+    to: "/posts",
   },
   {
     title: "Serviços",
@@ -55,7 +55,7 @@ const menu = [
   },
   {
     title: "Locais Turísticos",
-    to: "/tours/tours",
+    to: "/tours",
   },
   {
     title: "Sobre nós",
