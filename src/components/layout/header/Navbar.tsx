@@ -15,13 +15,13 @@ const Navbar = ({ isLogged, customer, handleLogout }: Props) => {
           if (m.children) {
             return (
               <li className="menu-item menu-item-has-children dropdown nav-item">
-                <NavLink to={m.to} className="dropdown-toggle nav-Navlink">
+                <NavLink to={m.to} className="dropdown-toggle nav-link">
                   <span>{m.title}</span>
                 </NavLink>
                 <ul className="dropdown-menu">
                   {m.children.map((i) => (
                     <li className="menu-item  nav-item">
-                      <NavLink to={i.to} className="dropdown-item nav-Navlink">
+                      <NavLink to={i.to} className="dropdown-item nav-link">
                         <span>{i.title}</span>
                       </NavLink>
                     </li>
@@ -35,7 +35,7 @@ const Navbar = ({ isLogged, customer, handleLogout }: Props) => {
           } else {
             return (
               <li className="menu-item nav-item">
-                <NavLink to={`${m.to}`} className="nav-Navlink">
+                <NavLink to={`${m.to}`} className="nav-link">
                   <span>{m.title}</span>
                 </NavLink>
               </li>
@@ -46,7 +46,7 @@ const Navbar = ({ isLogged, customer, handleLogout }: Props) => {
         {isLogged && customer && (
           <>
             <li className="menu-item menu-item-has-children dropdown nav-item">
-              <NavLink to="#" className="dropdown-toggle nav-Navlink">
+              <NavLink to="#" className="dropdown-toggle nav-link">
                 <span>{customer.first_name}</span>
               </NavLink>
               <ul className="dropdown-menu">
@@ -59,14 +59,14 @@ const Navbar = ({ isLogged, customer, handleLogout }: Props) => {
               </div>
             </li>
             <li className="menu-item menu-item-has-children dropdown nav-item">
-              <NavLink to="#" className="dropdown-toggle nav-Navlink">
+              <NavLink to="#" className="dropdown-toggle nav-link">
                 <span>Documentos</span>
               </NavLink>
               <ul className="dropdown-menu">
                 <li className="menu-item  nav-item">
                   <NavLink
                     to="/documents/atestados/?type=1"
-                    className="dropdown-item nav-Navlink"
+                    className="dropdown-item nav-link"
                   >
                     <span>Atestados</span>
                   </NavLink>
@@ -74,17 +74,14 @@ const Navbar = ({ isLogged, customer, handleLogout }: Props) => {
                 <li className="menu-item  nav-item">
                   <NavLink
                     to="/documents/atestados/?type=2"
-                    className="dropdown-item nav-Navlink"
+                    className="dropdown-item nav-link"
                   >
                     <span>Autorizações</span>
                   </NavLink>
                 </li>
                 {customer.back_staff && (
                   <li className="menu-item  nav-item">
-                    <NavLink
-                      to="/settings/"
-                      className="dropdown-item nav-Navlink"
-                    >
+                    <NavLink to="/settings/" className="dropdown-item nav-link">
                       <span>Configurações</span>
                     </NavLink>
                   </li>
