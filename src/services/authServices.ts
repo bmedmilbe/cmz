@@ -1,13 +1,13 @@
 export interface UserLogin {
-  phone?: string;
-  password?: string;
-  access?: string;
+  email: string;
+  password: string;
+  access: string;
 }
 
 export interface UserRegister {
   id?: number;
-  phone: string;
-  re_phone: string;
+  email: string;
+  re_email: string;
   // password: string;
   first_name: string;
   last_name: string;

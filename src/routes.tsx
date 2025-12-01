@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./pages/layout/Layout";
-import LoginPage from "./pages/LoginPage";
 import PrivateLayout from "./pages/layout/PrivateLayout";
 
 import HomePage from "./pages/HomePage";
@@ -14,6 +13,7 @@ import ExtraPage from "./pages/ExtraPage";
 import StaffsPage from "./pages/StaffsPage";
 import AssemblysPage from "./pages/AssemblysPage";
 import OrgPage from "./pages/OrgPage";
+import LoginPage from "./pages/auth/LoginPage";
 
 const routes = createBrowserRouter([
   {
