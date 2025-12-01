@@ -87,24 +87,6 @@ const menu = [
       },
     ],
   },
-  {
-    title: "Contactos",
-    to: "#",
-    children: [
-      {
-        title: "Contacte nos",
-        to: "/#contact",
-      },
-      {
-        title: "Contactos de Emergência",
-        to: "/#emergency",
-      },
-      {
-        title: "Postos de Abastecimentos",
-        to: "/#station",
-      },
-    ],
-  },
 ];
 
 const services = {
