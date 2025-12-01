@@ -1,14 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
-import ApiClient, { apiCMZEndpoint } from "../../services/api-client";
+import useGeneralOne from "./useGeneralOne";
 
-const usePost = <PostHome>(slug: string) => {
-  const apiClient = new ApiClient<PostHome>(`${apiCMZEndpoint}/posts/${slug}`);
-  return useQuery<PostHome>({
-    queryFn: () => {
-      return apiClient.getAllSimple({});
-    },
-    queryKey: ["posts", slug],
-  });
-};
+const usePost = <T>(slug: string) =>
+  useGeneralOne<T>("posts", slug, ["posts", slug]);
 
 export default usePost;
