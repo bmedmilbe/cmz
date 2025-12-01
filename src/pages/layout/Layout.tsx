@@ -23,7 +23,7 @@ const Layout = ({ breadcrumbTitle, breadcrumbImage }: Props) => {
 
   const handleLogout = () => {
     localStorage.removeItem("access");
-    router("/");
+    location.href = "/";
   };
   // Scroll Header
   const [scroll, setScroll] = useState<number | boolean>(0);

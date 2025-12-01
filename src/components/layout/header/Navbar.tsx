@@ -7,7 +7,6 @@ interface Props {
   handleLogout(): void;
 }
 const Navbar = ({ customer, handleLogout }: Props) => {
-  console.log(customer);
   return (
     <>
       <ul id="myNavbar" className="navbar_nav">
