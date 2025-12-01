@@ -3,10 +3,10 @@ import Breadcrumb from "./layout/header/Breadcrumb";
 import Spinner from "./Spinner";
 interface Props {
   post: PostHome;
-  children: React.ReactNode;
+  children: React.ReactNode | "";
   isLoading: boolean;
 }
-const ServicePost = ({ post, children, isLoading }: Props) => {
+const PostDisplay = ({ post, children, isLoading }: Props) => {
   if (isLoading) return <Spinner />;
   return (
     <>
@@ -34,4 +34,4 @@ const ServicePost = ({ post, children, isLoading }: Props) => {
   );
 };
 
-export default ServicePost;
+export default PostDisplay;

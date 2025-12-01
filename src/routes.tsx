@@ -10,6 +10,7 @@ import ServicesPage from "./pages/services/ServicesPage";
 import ServicePage from "./pages/services/ServicePage";
 import ToursPage from "./pages/tours/ToursPage";
 import TourPage from "./pages/tours/TourPage";
+import ExtraPage from "./pages/ExtraPage";
 
 const routes = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const routes = createBrowserRouter([
       { path: "services/:slug", element: <ServicePage /> },
       { path: "tours/", element: <ToursPage /> },
       { path: "tours/:slug", element: <TourPage /> },
+      { path: "extras/:slug", element: <ExtraPage /> },
     ],
   },
   {

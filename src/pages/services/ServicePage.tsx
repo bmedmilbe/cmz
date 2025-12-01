@@ -3,7 +3,7 @@ import type { PostHome } from "../../hooks/cmz/usePostsInfinite";
 import usePost from "../../hooks/cmz/usePost";
 
 import Spinner from "../../components/Spinner";
-import ServicePost from "../../components/ServicePost";
+import PostDisplay from "../../components/PostDisplay";
 import ServiceList from "../../components/elements/ServiceList";
 
 const ServicePage = () => {
@@ -25,9 +25,9 @@ const ServicePage = () => {
   if (isLoading) return <Spinner />;
   return (
     <>
-      <ServicePost post={post} isLoading={isLoading}>
+      <PostDisplay post={post} isLoading={isLoading}>
         <ServiceList />
-      </ServicePost>
+      </PostDisplay>
     </>
   );
 };

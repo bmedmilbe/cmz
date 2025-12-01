@@ -63,7 +63,7 @@ const menu = [
     children: [
       {
         title: "História",
-        to: "/extras?slug=historia-da-camarza",
+        to: "/extras/historia-da-camarza",
       },
       {
         title: "Composição",

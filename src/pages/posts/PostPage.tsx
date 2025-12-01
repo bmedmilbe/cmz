@@ -1,9 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom";
-import type { PostHome } from "../../hooks/cmz/usePostsInfinite";
-import usePost from "../../hooks/cmz/usePost";
-import Breadcrumb from "../../components/layout/header/Breadcrumb";
 import PostList from "../../components/elements/PostList";
+import PostDisplay from "../../components/PostDisplay";
 import Spinner from "../../components/Spinner";
+import usePost from "../../hooks/cmz/usePost";
+import type { PostHome } from "../../hooks/cmz/usePostsInfinite";
 
 const PostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -24,31 +24,9 @@ const PostPage = () => {
   if (isLoading) return <Spinner />;
   return (
     <>
-      <Breadcrumb
-        breadcrumbTitle={post?.title}
-        breadcrumbImage={post?.picture}
-      />
-      <main id="main" className="site-main" role="main">
-        <section className="blog_single_details_outer">
-          <div className="container">
-            {!isLoading && (
-              <span
-                className="text"
-                dangerouslySetInnerHTML={{ __html: post.text || "" }}
-              ></span>
-            )}
-          </div>
-        </section>
-        <div className="row">
-          <div className="col-md-6">
-            <PostList postTarget={post} />
-            <div className="pd_top_10" />
-          </div>
-        </div>
-        {/*===============spacing==============*/}
-        <div className="pd_bottom_70" />
-        {/*===============spacing==============*/}
-      </main>
+      <PostDisplay post={post} isLoading={isLoading}>
+        <PostList postTarget={post} />
+      </PostDisplay>
     </>
   );
 };
