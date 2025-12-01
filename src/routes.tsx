@@ -11,6 +11,7 @@ import ServicePage from "./pages/services/ServicePage";
 import ToursPage from "./pages/tours/ToursPage";
 import TourPage from "./pages/tours/TourPage";
 import ExtraPage from "./pages/ExtraPage";
+import StaffsPage from "./pages/StaffsPage";
 
 const routes = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const routes = createBrowserRouter([
       { path: "tours/", element: <ToursPage /> },
       { path: "tours/:slug", element: <TourPage /> },
       { path: "extras/:slug", element: <ExtraPage /> },
+      { path: "staffs/", element: <StaffsPage /> },
     ],
   },
   {
