@@ -1,26 +1,29 @@
-import type { Customer } from "../../../hooks/useCustomers";
+import type { Customer } from "../../../hooks/useMe";
 import { menu } from "../../../utils/data";
 import { NavLink } from "react-router-dom";
 
 interface Props {
-  isLogged: boolean;
   customer?: Customer;
   handleLogout(): void;
 }
-const Navbar = ({ isLogged, customer, handleLogout }: Props) => {
+const Navbar = ({ customer, handleLogout }: Props) => {
+  console.log(customer);
   return (
     <>
       <ul id="myNavbar" className="navbar_nav">
-        {menu.map((m) => {
+        {menu.map((m, key) => {
           if (m.children) {
             return (
-              <li className="menu-item menu-item-has-children dropdown nav-item">
+              <li
+                key={key}
+                className="menu-item menu-item-has-children dropdown nav-item"
+              >
                 <NavLink to={m.to} className="dropdown-toggle nav-link">
                   <span>{m.title}</span>
                 </NavLink>
                 <ul className="dropdown-menu">
-                  {m.children.map((i) => (
-                    <li className="menu-item  nav-item">
+                  {m.children.map((i, index) => (
+                    <li key={index} className="menu-item  nav-item">
                       <NavLink to={i.to} className="dropdown-item nav-link">
                         <span>{i.title}</span>
                       </NavLink>
@@ -34,7 +37,7 @@ const Navbar = ({ isLogged, customer, handleLogout }: Props) => {
             );
           } else {
             return (
-              <li className="menu-item nav-item">
+              <li key={key} className="menu-item nav-item">
                 <NavLink to={`${m.to}`} className="nav-link">
                   <span>{m.title}</span>
                 </NavLink>
@@ -43,7 +46,7 @@ const Navbar = ({ isLogged, customer, handleLogout }: Props) => {
           }
         })}
 
-        {isLogged && customer && (
+        {customer && (
           <>
             <li className="menu-item menu-item-has-children dropdown nav-item">
               <NavLink to="#" className="dropdown-toggle nav-link">

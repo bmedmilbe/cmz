@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import { type Customer } from "../../hooks/useCustomers";
-import useMe from "../../hooks/useMe";
+import useMe, { type Customer } from "../../hooks/useMe";
 import Header from "../../components/layout/header/Header";
 import Breadcrumb from "../../components/layout/header/Breadcrumb";
 import Footer from "../../components/layout/footer/Footer";
@@ -19,18 +18,12 @@ const Layout = ({ breadcrumbTitle, breadcrumbImage }: Props) => {
     window.scrollTo(window.scrollY, window.scrollY - 90);
   };
   const router = useNavigate();
-  const [isLogged, setIsLogged] = useState(false);
-  const [customer, setCustomer] = useState<Customer | undefined>(undefined);
 
-  const { data, isLoading } = useMe<Customer>();
-  if (!isLoading && data) {
-    setCustomer(data);
-  }
+  const { data } = useMe<Customer>();
+
   const handleLogout = () => {
     localStorage.removeItem("access");
     router("/");
-    setCustomer(undefined);
-    setIsLogged(false);
   };
   // Scroll Header
   const [scroll, setScroll] = useState<number | boolean>(0);
@@ -51,7 +44,7 @@ const Layout = ({ breadcrumbTitle, breadcrumbImage }: Props) => {
         } ${isMobileMenu ? "crt_mobile_menu-visible" : ""}`}
       >
         <div id="wrapper_full" className="content_all_warpper">
-          <Header isLogged={isLogged} handleLogout={handleLogout} />
+          <Header customer={data} handleLogout={handleLogout} />
 
           <Breadcrumb
             breadcrumbImage={breadcrumbImage}
@@ -68,8 +61,7 @@ const Layout = ({ breadcrumbTitle, breadcrumbImage }: Props) => {
           isMobileMenu={isMobileMenu}
           handleMobileMenu={handleMobileMenu}
           handleLogout={handleLogout}
-          isLogged={isLogged}
-          customer={customer}
+          customer={data}
         />
         <SearchPopup />
       </div>

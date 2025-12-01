@@ -1,6 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { type Customer } from "../../hooks/useCustomers";
-import useMe from "../../hooks/useMe";
+import useMe, { type Customer } from "../../hooks/useMe";
 import Layout from "./Layout";
 
 const PrivateLayout = () => {

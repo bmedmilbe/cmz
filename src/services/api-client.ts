@@ -52,26 +52,7 @@ class ApiClient<T> {
   updatePart = (data: T) => {
     return instance.patch<T>(this.endpoint, data).then((res) => res.data);
   };
-  // setFriend = (id: number, data: T) => {
-  //   return instance
-  //     .patch<T>(this.endpoint + `${id}/set_friend/`, data)
-  //     .then((res) => res.data);
-  // };
-  setFriend = (id: number, data: T) => {
-    return instance
-      .patch<T>(this.endpoint + `${id}/set_friend/`, data)
-      .then((res) => res.data);
-  };
-  completeTransaction = (id: number) => {
-    return instance
-      .patch<T>(this.endpoint + `${id}/complete/`)
-      .then((res) => res.data);
-  };
-  deleteTransaction = (id: number) => {
-    return instance
-      .delete<T>(this.endpoint + `${id}/delete/`)
-      .then((res) => res.data);
-  };
+
   delete = (id: number) => {
     return instance.delete<T>(this.endpoint + `${id}/`).then((res) => res.data);
   };

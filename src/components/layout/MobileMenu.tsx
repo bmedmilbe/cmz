@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import type { Customer } from "../../hooks/useCustomers";
 import { menu } from "../../utils/data";
+import type { Customer } from "../../hooks/useMe";
 
 interface isToggleActive {
   status: boolean;
@@ -9,18 +9,12 @@ interface isToggleActive {
 }
 interface Props {
   handleMobileMenu(): void;
-  isLogged: boolean;
   customer?: Customer;
   handleLogout(): void;
   isMobileMenu: boolean;
 }
 
-const MobileMenu = ({
-  handleMobileMenu,
-  isLogged,
-  customer,
-  handleLogout,
-}: Props) => {
+const MobileMenu = ({ handleMobileMenu, customer, handleLogout }: Props) => {
   const [isActive, setIsActive] = useState<isToggleActive>({
     status: false,
   });
@@ -51,7 +45,10 @@ const MobileMenu = ({
             {menu.map((m, index) => {
               if (m.children) {
                 return (
-                  <li className="menu-item menu-item-has-children dropdown nav-item">
+                  <li
+                    key={index}
+                    className="menu-item menu-item-has-children dropdown nav-item"
+                  >
                     <NavLink to={m.to} className="dropdown-toggle nav-Navlink">
                       <span>{m.title}</span>
                     </NavLink>
@@ -63,8 +60,9 @@ const MobileMenu = ({
                         }`,
                       }}
                     >
-                      {m.children.map((i) => (
+                      {m.children.map((i, key) => (
                         <li
+                          key={key}
                           className="menu-item  nav-item"
                           onClick={handleMobileMenu}
                         >
@@ -87,7 +85,11 @@ const MobileMenu = ({
                 );
               } else {
                 return (
-                  <li className="menu-item nav-item" onClick={handleMobileMenu}>
+                  <li
+                    key={index}
+                    className="menu-item nav-item"
+                    onClick={handleMobileMenu}
+                  >
                     <NavLink to={`${m.to}`} className="nav-Navlink">
                       <span>{m.title}</span>
                     </NavLink>
@@ -96,7 +98,7 @@ const MobileMenu = ({
               }
             })}
 
-            {isLogged && customer && (
+            {customer && (
               <li className="menu-item menu-item-has-children dropdown nav-item">
                 <NavLink to="#" className="dropdown-toggle nav-Navlink">
                   <span>{customer.first_name}</span>
@@ -117,7 +119,7 @@ const MobileMenu = ({
               </li>
             )}
 
-            {isLogged && customer && (
+            {customer && (
               <li className="menu-item menu-item-has-children dropdown nav-item">
                 <NavLink to="#" className="dropdown-toggle nav-Navlink">
                   <span>Documentos</span>
@@ -128,7 +130,7 @@ const MobileMenu = ({
                     display: `${isActive.key == 100 ? "block" : "none"}`,
                   }}
                 >
-                  <li className="menu-item  nav-item">
+                  <li key={1} className="menu-item  nav-item">
                     <NavLink
                       to="/documents/atestados/?type=1"
                       className="dropdown-item nav-Navlink"
@@ -136,7 +138,7 @@ const MobileMenu = ({
                       <span>Atestados</span>
                     </NavLink>
                   </li>
-                  <li className="menu-item  nav-item">
+                  <li key={2} className="menu-item  nav-item">
                     <NavLink
                       to="/documents/atestados/?type=2"
                       className="dropdown-item nav-Navlink"

@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import Navbar from "./Navbar";
 import { useState } from "react";
+import type { Customer } from "../../../hooks/useMe";
 interface Props {
-  isLogged: boolean;
+  customer?: Customer;
   handleLogout(): void;
 }
-const Header = ({ isLogged, handleLogout }: Props) => {
+const Header = ({ handleLogout, customer }: Props) => {
   const [isMobileMenu, setMobileMenu] = useState(false);
 
   const handleMobileMenu = () => {
@@ -45,7 +46,7 @@ const Header = ({ isLogged, handleLogout }: Props) => {
               <div className="header_content_collapse">
                 <div className="header_menu_box">
                   <div className="navigation_menu text-center">
-                    <Navbar isLogged={isLogged} handleLogout={handleLogout} />
+                    <Navbar customer={customer} handleLogout={handleLogout} />
                   </div>
                 </div>
               </div>
