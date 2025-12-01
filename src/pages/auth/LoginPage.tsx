@@ -3,10 +3,9 @@ import Breadcrumb from "../../components/layout/header/Breadcrumb";
 import useAuth from "../../hooks/useAuth";
 import type { UserLogin } from "../../services/authServices";
 import InputArea from "../../components/forms/InputArea";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const LoginPage = () => {
-  const nav = useNavigate();
   const [formData, setFormData] = useState<UserLogin>({
     email: "",
     password: "",
@@ -25,7 +24,7 @@ const LoginPage = () => {
     event.preventDefault(); // Prevent default form submission behavior
     userLogin
       .mutateAsync(formData)
-      .then(() => nav("/"))
+      .then(() => (location.href = "/"))
       .catch(() => {
         setError("Login ou senha incoreta!");
       });

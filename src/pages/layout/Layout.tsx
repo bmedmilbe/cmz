@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import useMe, { type Customer } from "../../hooks/useMe";
 import Header from "../../components/layout/header/Header";
 import Breadcrumb from "../../components/layout/header/Breadcrumb";
@@ -17,7 +17,6 @@ const Layout = ({ breadcrumbTitle, breadcrumbImage }: Props) => {
     setMobileMenu(!isMobileMenu);
     window.scrollTo(window.scrollY, window.scrollY - 90);
   };
-  const router = useNavigate();
 
   const { data } = useMe<Customer>();
 

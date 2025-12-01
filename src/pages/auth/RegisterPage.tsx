@@ -1,12 +1,11 @@
 import { useState, type FormEvent } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import InputArea from "../../components/forms/InputArea";
 import Breadcrumb from "../../components/layout/header/Breadcrumb";
 import useAuthRegister from "../../hooks/useAuthRegister";
 import type { UserRegister } from "../../services/authServices";
 
 const RegisterPage = () => {
-  const nav = useNavigate();
   const [formData, setFormData] = useState<UserRegister>({
     email: "",
     re_email: "",
@@ -35,7 +34,7 @@ const RegisterPage = () => {
         ...formData,
         username: formData.email,
       })
-      .then(() => nav("/"))
+      .then()
       .catch((err) => {
         if (
           err.response.data.email[0] == "user with this email already exists."
