@@ -14,6 +14,7 @@ import StaffsPage from "./pages/StaffsPage";
 import AssemblysPage from "./pages/AssemblysPage";
 import OrgPage from "./pages/OrgPage";
 import LoginPage from "./pages/auth/LoginPage";
+import RegisterPage from "./pages/auth/RegisterPage";
 
 const routes = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const routes = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: "login/", element: <LoginPage /> },
+      { path: "create-account/", element: <RegisterPage /> },
       { path: "posts/", element: <PostsPage /> },
       { path: "posts/:slug", element: <PostPage /> },
       { path: "services/", element: <ServicesPage /> },

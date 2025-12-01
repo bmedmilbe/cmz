@@ -10,15 +10,10 @@ const useAuthRegister = () => {
 
   return useMutation<UserRegister, Error, UserRegister>({
     mutationFn: apiClient.save,
-    // onSuccess: (responseData: UserRegister, userLogin: UserLogin) => {
-    //   // console.log(responseData);
-    //   localStorage.setItem("access", responseData.access);
-    // },
+
     onSuccess: (responseData: UserRegister, userRegister: UserRegister) => {
-      // console.log(responseData);
       console.log(responseData);
-      // localStorage.setItem("access", responseData.access);
-      auth.mutate(userRegister);
+      auth.mutate({ ...userRegister, access: "" });
     },
   });
 };

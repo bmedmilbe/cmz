@@ -8,7 +8,8 @@ export interface UserRegister {
   id?: number;
   email: string;
   re_email: string;
-  // password: string;
+  password: string;
+  confirm_password: string;
   first_name: string;
   last_name: string;
   username: string;
