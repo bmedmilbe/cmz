@@ -12,6 +12,8 @@ import ToursPage from "./pages/tours/ToursPage";
 import TourPage from "./pages/tours/TourPage";
 import ExtraPage from "./pages/ExtraPage";
 import StaffsPage from "./pages/StaffsPage";
+import AssemblysPage from "./pages/AssemblysPage";
+import OrgPage from "./pages/OrgPage";
 
 const routes = createBrowserRouter([
   {
@@ -28,6 +30,9 @@ const routes = createBrowserRouter([
       { path: "tours/:slug", element: <TourPage /> },
       { path: "extras/:slug", element: <ExtraPage /> },
       { path: "staffs/", element: <StaffsPage /> },
+      { path: "assemblys/", element: <AssemblysPage /> },
+      { path: "assemblys/", element: <AssemblysPage /> },
+      { path: "orgs/:slug", element: <OrgPage /> },
     ],
   },
   {

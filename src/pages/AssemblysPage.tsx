@@ -1,18 +1,18 @@
 import ImageCardDisplay from "../components/ImageCardDisplay";
 import Breadcrumb from "../components/layout/header/Breadcrumb";
-import { useTeams } from "../hooks/cmz/useTeams";
+import { useAssemblys } from "../hooks/cmz/useAssemblys";
 
-const StaffsPage = () => {
-  const { data: staffs } = useTeams();
+const AssemblysPage = () => {
+  const { data: images } = useAssemblys();
   return (
     <>
       <Breadcrumb
-        breadcrumbTitle="Composição"
+        breadcrumbTitle="Assembleia"
         breadcrumbImage="/assets/images/service.webp"
       />
-      <ImageCardDisplay images={staffs} />
+      <ImageCardDisplay images={images} />
     </>
   );
 };
 
-export default StaffsPage;
+export default AssemblysPage;
