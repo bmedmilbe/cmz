@@ -67,7 +67,7 @@ const Navbar = ({ customer, handleLogout }: Props) => {
               <ul className="dropdown-menu">
                 <li className="menu-item  nav-item">
                   <NavLink
-                    to="/documents/atestados/?type=1"
+                    to="/certificates/1"
                     className="dropdown-item nav-link"
                   >
                     <span>Atestados</span>
@@ -75,7 +75,7 @@ const Navbar = ({ customer, handleLogout }: Props) => {
                 </li>
                 <li className="menu-item  nav-item">
                   <NavLink
-                    to="/documents/atestados/?type=2"
+                    to="/certificates/list/2"
                     className="dropdown-item nav-link"
                   >
                     <span>Autorizações</span>

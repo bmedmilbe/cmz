@@ -5,10 +5,8 @@ export interface Customer {
   user: number;
   first_name: string;
   last_name: string;
-  boss: boolean;
-  is_deliver: boolean;
-  phone: number;
-  back_staff?: boolean;
+  back_staff: boolean;
+  level: number;
 }
 const useMe = <Customer>() => {
   const apiClient = new ApiClient<Customer>(

@@ -132,7 +132,7 @@ const MobileMenu = ({ handleMobileMenu, customer, handleLogout }: Props) => {
                 >
                   <li key={1} className="menu-item  nav-item">
                     <NavLink
-                      to="/documents/atestados/?type=1"
+                      to="certificates/list/1"
                       className="dropdown-item nav-Navlink"
                     >
                       <span>Atestados</span>
@@ -140,7 +140,7 @@ const MobileMenu = ({ handleMobileMenu, customer, handleLogout }: Props) => {
                   </li>
                   <li key={2} className="menu-item  nav-item">
                     <NavLink
-                      to="/documents/atestados/?type=2"
+                      to="certificates/list/2"
                       className="dropdown-item nav-Navlink"
                     >
                       <span>Autorizações</span>
