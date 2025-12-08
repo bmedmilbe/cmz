@@ -28,8 +28,8 @@ const PersonList = ({ handelPerson }: Props) => {
           <div className="col-sm-2 items__title">Validade</div>
         </div>
 
-        {data?.results.map((person) => (
-          <div className="row items__items">
+        {data?.results.map((person, key) => (
+          <div key={key} className="row items__items">
             <div className="col-sm-4 items__item">
               <span
                 className="items__item__main-value"

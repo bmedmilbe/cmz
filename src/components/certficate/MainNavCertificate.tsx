@@ -95,7 +95,7 @@ const MainNavCertificate = ({ page, type }: Props) => {
       />
       <ModalPopupPerson
         isPersonPopup={isPersonPopup}
-        handelPersonPopup={handelPersonPopup}
+        setIsPersonPopup={setIsPersonPopup}
         person={person}
       />
     </>

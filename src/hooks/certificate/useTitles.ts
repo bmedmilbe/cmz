@@ -12,6 +12,7 @@ export interface CertificateTitle {
   certificate_type: CertificateType;
   type_price: number;
   name: string;
+  goal: string;
 }
 
 const useTitles = () => useCertificateGet<CertificateTitle>("titles", "titles");

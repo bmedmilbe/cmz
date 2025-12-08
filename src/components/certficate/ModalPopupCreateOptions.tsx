@@ -20,7 +20,7 @@ const ModalPopupCreateOptions = ({
   const router = useNavigate();
   const handleRouteCreate = (title: CertificateTitle) => {
     if (![26, 31].includes(title.id)) {
-      router(`/documents/model-create/${title.id}/${id || "off"}`);
+      router(`/certificates/create/${title.id}/${id || ""}`);
       setIsTitlesPopup(false);
     } else {
       alert(`${title.name} em desenvolvimento!`);
@@ -58,7 +58,7 @@ const ModalPopupCreateOptions = ({
                     width: "100%",
                     maxWidth: "300px",
                     verticalAlign: "top",
-                    borderTop: "1px dashed #3263b1",
+                    borderBottom: "1px dashed #3263b1",
                     margin: "10px 20px",
                     cursor: "pointer",
                   }}

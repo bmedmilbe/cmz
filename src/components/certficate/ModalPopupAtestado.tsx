@@ -1,10 +1,13 @@
 import { useEffect } from "react";
 import PdfView from "./PdfView";
-import type { Certificate } from "../../hooks/certificate/useCertificatesInfinite";
+import type {
+  Certificate,
+  CertificateSaving,
+} from "../../hooks/certificate/useCertificatesInfinite";
 interface Props {
   isDocumentPopup: boolean;
   handelDocumentPopup: () => void;
-  certificate: Certificate | undefined;
+  certificate: Certificate | undefined | CertificateSaving;
 }
 export const ModalPopupAtestado = ({
   isDocumentPopup,

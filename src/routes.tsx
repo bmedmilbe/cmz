@@ -17,6 +17,7 @@ import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import CertificatesPage from "./pages/certificate/CertificatesPage";
 import PersonsPage from "./pages/certificate/PersonsPage";
+import CertificateCreatePage from "./pages/certificate/CertificateCreatePage";
 
 const routes = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const routes = createBrowserRouter([
     children: [
       { path: "list/:type", element: <CertificatesPage /> },
       { path: "persons/:type", element: <PersonsPage /> },
+      {
+        path: "create/:titleId/:certificateId?",
+        element: <CertificateCreatePage />,
+      },
     ],
   },
   {

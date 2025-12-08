@@ -28,7 +28,7 @@ class ApiClient<T> {
   endpoint: string;
 
   constructor(endpoint: string) {
-    this.endpoint = endpoint + "/";
+    this.endpoint = endpoint;
   }
   getAll = (params: AxiosRequestConfig) => {
     return instance
@@ -53,9 +53,10 @@ class ApiClient<T> {
     return instance.patch<T>(this.endpoint, data).then((res) => res.data);
   };
 
-  delete = (id: number) => {
-    return instance.delete<T>(this.endpoint + `${id}/`).then((res) => res.data);
+  delete = () => {
+    return instance.delete<T>(this.endpoint).then((res) => res.data);
   };
+
   saveImage = (data: T) => {
     return instance
       .post<T>(this.endpoint, data, {

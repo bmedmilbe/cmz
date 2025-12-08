@@ -20,11 +20,28 @@ export interface Certificate {
   obs: string;
 }
 export interface CertificateSaving {
-  id: number;
-  type: number;
-  main_person: number;
+  id?: number;
+  type?: number;
+  main_person?: number;
   secondary_person?: number;
-  status: string;
+  status?: string;
+
+  instituition?: number;
+  university?: number;
+  date?: number;
+  country?: number;
+  years?: number;
+  street?: number;
+  building_type?: number;
+  object?: number;
+  infra?: string;
+  metros?: number;
+  cemiterio?: number;
+  entero_date?: string;
+  died_date?: string;
+  coval?: number;
+  change?: number;
+  file?: string;
 }
 export interface CertificateStatus {
   id: number;
@@ -47,7 +64,7 @@ const useCertificatesInfinite = (type: number) => {
     queryFn: () => {
       return apiClient.getAllSecond({
         params: {
-          ...queryParam,
+          ...queryParam.query,
           limit: 10,
           offset: queryParam.page * 10,
           ["type__certificate_type" + (type == 2 ? "__gt" : "")]: type,

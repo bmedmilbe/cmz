@@ -15,14 +15,6 @@ const CertificatesPage = () => {
   if (type != "1" && type != "2") {
     navigate("/");
   }
-  // const setCustomer = useCustomerStore((s) => s.setCustomer);
-  // useEffect(() => {
-  //   let customerObject = JSON.parse(localStorage.getItem("user"));
-  //   if (customerObject != null) {
-  //     // console.log(customerObject);
-  //     setCustomer(customerObject);
-  //   }
-  // }, []);
 
   const [isDocumentPopup, setIsDocumentPopup] = useState(false);
   const handelDocumentPopup = () => {
