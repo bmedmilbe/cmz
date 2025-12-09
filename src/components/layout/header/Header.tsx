@@ -5,14 +5,11 @@ import type { Customer } from "../../../hooks/useMe";
 interface Props {
   customer?: Customer;
   handleLogout(): void;
+  handleMobileMenu(): void;
 }
-const Header = ({ handleLogout, customer }: Props) => {
-  const [isMobileMenu, setMobileMenu] = useState(false);
+const Header = ({ handleLogout, customer, handleMobileMenu }: Props) => {
+  const [] = useState(false);
 
-  const handleMobileMenu = () => {
-    setMobileMenu(!isMobileMenu);
-    window.scrollTo(window.scrollY, window.scrollY - 90);
-  };
   return (
     <div className="header_area" id="header_contents">
       <header className="header header_default style_nine header_eleven head_absolute pd_top_20 transparent-bg get_sticky_header">

@@ -43,7 +43,11 @@ const Layout = ({ breadcrumbTitle, breadcrumbImage }: Props) => {
         } ${isMobileMenu ? "crt_mobile_menu-visible" : ""}`}
       >
         <div id="wrapper_full" className="content_all_warpper">
-          <Header customer={data} handleLogout={handleLogout} />
+          <Header
+            handleMobileMenu={handleMobileMenu}
+            customer={data}
+            handleLogout={handleLogout}
+          />
 
           <Breadcrumb
             breadcrumbImage={breadcrumbImage}
@@ -57,7 +61,6 @@ const Layout = ({ breadcrumbTitle, breadcrumbImage }: Props) => {
         <Footer />
 
         <MobileMenu
-          isMobileMenu={isMobileMenu}
           handleMobileMenu={handleMobileMenu}
           handleLogout={handleLogout}
           customer={data}

@@ -11,7 +11,6 @@ interface Props {
   handleMobileMenu(): void;
   customer?: Customer;
   handleLogout(): void;
-  isMobileMenu: boolean;
 }
 
 const MobileMenu = ({ handleMobileMenu, customer, handleLogout }: Props) => {
