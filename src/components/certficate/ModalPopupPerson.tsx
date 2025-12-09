@@ -304,7 +304,7 @@ const ModalPopupPerson = ({
                   data={streets || []}
                   name="birth_street"
                   label={"Local de Nascimento"}
-                  value={formBirthAddressData.id}
+                  value={formBirthAddressData.birth_street}
                   nextInput={nextInputBirth}
                 />
               </div>
