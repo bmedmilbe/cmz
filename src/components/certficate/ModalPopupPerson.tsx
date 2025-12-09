@@ -45,7 +45,7 @@ const ModalPopupPerson = ({
               id: person.birth_address.id,
               birth_street: person.birth_address.birth_street
                 ? person.birth_address.birth_street.id
-                : 0,
+                : undefined,
               birth_town: person.birth_address.birth_town
                 ? person.birth_address.birth_town.id
                 : undefined,
@@ -58,10 +58,10 @@ const ModalPopupPerson = ({
             }
           : {
               id: 0,
-              birth_street: 0,
-              birth_town: 0,
-              birth_county: 0,
-              birth_country: 0,
+              birth_street: undefined,
+              birth_town: undefined,
+              birth_county: undefined,
+              birth_country: undefined,
             }
       );
 
@@ -93,10 +93,10 @@ const ModalPopupPerson = ({
     } else {
       setFormBirthAddressData({
         id: 0,
-        birth_street: 0,
-        birth_town: 0,
-        birth_county: 0,
-        birth_country: 0,
+        birth_street: undefined,
+        birth_town: undefined,
+        birth_county: undefined,
+        birth_country: undefined,
       });
       setFormHouseData({
         id: 0,

@@ -12,10 +12,10 @@ export interface BirthAdddress {
 }
 export interface BirthAdddressSaving {
   id: number;
-  birth_street?: number;
-  birth_town?: number;
-  birth_county?: number;
-  birth_country?: number;
+  birth_street?: number | string;
+  birth_town?: number | string;
+  birth_county?: number | string;
+  birth_country?: number | string;
 }
 export const useBirthAdddressAdd = <BirthAdddress>() =>
   useCertificatePost<BirthAdddress>("birthadddress/", ["birthadddress"]);
