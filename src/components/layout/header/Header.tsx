@@ -20,12 +20,12 @@ const Header = ({ handleLogout, customer, handleMobileMenu }: Props) => {
                 <NavLink to="/" className="logo navbar-brand">
                   <img
                     src="/assets/images/logo-white-1.webp"
-                    alt="Creote Elementor"
+                    alt="Camara Me-Zochi"
                     className="logo_default"
                   />
                   <img
                     src="/assets/images/logo-default.png"
-                    alt="Creote Elementor"
+                    alt="Camara Me-Zochi"
                     className="logo__sticky"
                   />
                 </NavLink>
