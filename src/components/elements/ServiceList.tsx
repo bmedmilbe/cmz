@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import useServicesCMZ from "../../hooks/cmz/useServicesCMZ";
 import useServicesSocial from "../../hooks/cmz/useServicesSocial";
 
@@ -24,9 +23,7 @@ const ServiceList = () => {
                       >
                         <img className="service-item-image" src={a.picture} />
                         <h3 className="align-self-center service-item-name">
-                          <NavLink to={`/services/${a.slug}`}>
-                            {a.title}
-                          </NavLink>
+                          <a href={`/services/${a.slug}`}>{a.title}</a>
                         </h3>
                       </div>
                     ))}
@@ -45,9 +42,7 @@ const ServiceList = () => {
                       >
                         <img className="service-item-image" src={a.picture} />
                         <h3 className="align-self-center service-item-name">
-                          <NavLink to={`/services/${a.slug}`}>
-                            {a.title}
-                          </NavLink>
+                          <a href={`/services/${a.slug}`}>{a.title}</a>
                         </h3>
                       </div>
                     ))}

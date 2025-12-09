@@ -40,12 +40,9 @@ const TourFilter = ({ targetTour }: Props) => {
                         loading="lazy"
                       />
                       <div className="overlay">
-                        <NavLink
-                          data-fancybox="gallery"
-                          to={`/tours/${tour.slug}`}
-                        >
+                        <a data-fancybox="gallery" href={`/tours/${tour.slug}`}>
                           <span className="fa fa-search icon" />
-                        </NavLink>
+                        </a>
                       </div>
                     </div>
                     <div className="content_inner">

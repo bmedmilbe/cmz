@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import usePostsInfinite, {
   type PostHome,
 } from "../../hooks/cmz/usePostsInfinite";
@@ -41,9 +41,9 @@ const PostList = ({ postTarget }: Props) => {
                       <h5 className="card-title">{item.title}</h5>
                       <p className="card-text">{item.beginnig}</p>
                       <div className="d-flex justify-content-between">
-                        <NavLink to={`/posts/${item.slug}`}>
+                        <a href={`/posts/${item.slug}`}>
                           &rarr; Saber mais ...
-                        </NavLink>{" "}
+                        </a>{" "}
                         <span>{item.posted_at}</span>
                       </div>
                     </div>
