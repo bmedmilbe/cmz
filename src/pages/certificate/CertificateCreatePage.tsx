@@ -21,6 +21,8 @@ import ModalPopupSimplePersons from "../../components/certficate/ModalPopupSimpl
 import ModalPopupSinglePerson from "../../components/certficate/ModalPopupSinglePerson";
 import ModalPopupParents from "../../components/certficate/ModalPopupParents";
 import ModalPopupDate from "../../components/certficate/ModalPopupDate";
+import { useCertificateEdit } from "../../hooks/certificate/edits/useCertificateEdit";
+import { useCertificateUpdateDocument } from "../../hooks/certificate/edits/useCertificateUpdateDocument";
 
 const CertificateCreatePage = () => {
   const { mainPerson, secondaryPerson } = useModelStore((s) => s.modelForm);
@@ -159,16 +161,33 @@ const CertificateCreatePage = () => {
     parseInt(titleId || "0")
   );
 
+  const certificateEdit = useCertificateUpdateDocument<CertificateSaving>(
+    parseInt(titleId || "0"),
+    parseInt(certificateId || "0")
+  );
+
   const saveNow = (body: CertificateSaving) => {
-    certificateAdd
-      .mutateAsync(body)
-      .then((res) => {
-        setError("");
-        setCertificate(res);
-      })
-      .catch(() => {
-        setError(`Complete o informação do/a ${mainPerson?.name}.`);
-      });
+    if (parseInt(certificateId || "0") == 0) {
+      certificateAdd
+        .mutateAsync(body)
+        .then((res) => {
+          setError("");
+          setCertificate(res);
+        })
+        .catch(() => {
+          setError(`Complete o informação do/a ${mainPerson?.name}.`);
+        });
+    } else {
+      certificateEdit
+        .mutateAsync(body)
+        .then((res) => {
+          setError("");
+          setCertificate(res);
+        })
+        .catch(() => {
+          setError(`Complete o informação do/a ${mainPerson?.name}.`);
+        });
+    }
   };
 
   const nextInputChange = (
@@ -187,7 +206,7 @@ const CertificateCreatePage = () => {
 
     let body = {
       main_person: mainPerson?.id,
-      secondary_person: secondaryPerson?.id ? secondaryPerson.id : undefined,
+      secondary_person: secondaryPerson?.id ? secondaryPerson.id : null,
       ...formData,
     };
 
@@ -264,7 +283,6 @@ const CertificateCreatePage = () => {
               <div className="contact_form_shortcode">
                 <form
                   id="contact-form"
-                  // onSubmit={handleSubmit(submitHandler)}
                   onSubmit={handleSubmit}
                   encType="multipart/form-data"
                   style={{

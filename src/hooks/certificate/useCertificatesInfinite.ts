@@ -23,7 +23,7 @@ export interface CertificateSaving {
   id?: number;
   type?: number;
   main_person?: number;
-  secondary_person?: number;
+  secondary_person?: number | null;
   status?: string;
 
   instituition?: number;

@@ -117,16 +117,18 @@ const ChoosePersons = ({ setCertificate }: Props) => {
         className={`person-box bg-light py-2 px-3 ${
           !listOpen ? "d-none" : "d-block"
         }`}
-        style={{ maxHeight: "300px", overflow: "scroll" }}
+        style={{ maxHeight: "300px", overflow: "scroll", cursor: "pointer" }}
       >
         {persons?.map((person, key) => (
-          <button
-            className="user-select-auto my-1 w-100"
-            key={key}
-            onClick={() => choosePerson(person)}
-          >
-            {person.name} {person.surname}
-          </button>
+          <ul className="list-group">
+            <li
+              key={key}
+              className="list-group-item list-group-item-action"
+              onClick={() => choosePerson(person)}
+            >
+              {person.name} {person.surname}
+            </li>
+          </ul>
         ))}
       </div>
     </>
