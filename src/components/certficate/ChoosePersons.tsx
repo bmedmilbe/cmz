@@ -113,23 +113,38 @@ const ChoosePersons = ({ setCertificate }: Props) => {
           />
         </div>
       </div>
+
       <div
-        className={`person-box bg-light py-2 px-3 ${
-          !listOpen ? "d-none" : "d-block"
-        }`}
+        className={`person-box py-2 px-3 ${!listOpen ? "d-none" : "d-block"}`}
         style={{ maxHeight: "300px", overflow: "scroll", cursor: "pointer" }}
       >
-        {persons?.map((person, key) => (
-          <ul className="list-group">
-            <li
-              key={key}
-              className="list-group-item list-group-item-action"
-              onClick={() => choosePerson(person)}
-            >
-              {person.name} {person.surname}
-            </li>
-          </ul>
-        ))}
+        <div className="items">
+          <div className="row items__titles">
+            <div className="col-sm-4 items__title">Nome</div>
+            <div className="col-sm-2 items__title">Nascimento</div>
+            <div className="col-sm-2 items__title">Doc. Nº</div>
+            <div className="col-sm-2 items__title">Doc. Tipo</div>
+            <div className="col-sm-2 items__title">Validade</div>
+          </div>
+          {persons?.map((person, key) => (
+            <div key={key} className="row items__items">
+              <div className="col-sm-4 items__item">
+                <span
+                  className="items__item__main-value"
+                  onClick={() => choosePerson(person)}
+                >
+                  {person.name} {person.surname}
+                </span>
+              </div>
+              <div className="col-sm-2 items__item"> {person.birth_date}</div>
+              <div className="col-sm-2 items__item">{person.id_number}</div>
+              <div className="col-sm-2 items__item">{person.id_type.name}</div>
+              <div className="col-sm-2 items__item">
+                {person.id_expire_date}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
