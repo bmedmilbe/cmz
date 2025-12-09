@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 interface Props {
-  value: number;
+  value: number | string;
   name: string;
   label: string;
   nextInput: (e: React.ChangeEvent<HTMLSelectElement>) => void;

@@ -43,10 +43,18 @@ const ModalPopupPerson = ({
         person.birth_address
           ? {
               id: person.birth_address.id,
-              birth_street: person.birth_address.birth_street.id,
-              birth_town: person.birth_address.birth_town.id,
-              birth_county: person.birth_address.birth_county.id,
-              birth_country: person.birth_address.birth_country.id,
+              birth_street: person.birth_address.birth_street
+                ? person.birth_address.birth_street.id
+                : 0,
+              birth_town: person.birth_address.birth_town
+                ? person.birth_address.birth_town.id
+                : undefined,
+              birth_county: person.birth_address.birth_county
+                ? person.birth_address.birth_county.id
+                : undefined,
+              birth_country: person.birth_address.birth_country
+                ? person.birth_address.birth_country.id
+                : undefined,
             }
           : {
               id: 0,
@@ -304,7 +312,7 @@ const ModalPopupPerson = ({
                   data={streets || []}
                   name="birth_street"
                   label={"Local de Nascimento"}
-                  value={formBirthAddressData.birth_street}
+                  value={formBirthAddressData.birth_street || ""}
                   nextInput={nextInputBirth}
                 />
               </div>
@@ -313,7 +321,7 @@ const ModalPopupPerson = ({
                   data={towns || []}
                   name="birth_town"
                   label={"Cidade de Nascimento"}
-                  value={formBirthAddressData.birth_town}
+                  value={formBirthAddressData?.birth_town || ""}
                   nextInput={nextInputBirth}
                 />
               </div>
@@ -322,7 +330,7 @@ const ModalPopupPerson = ({
                   data={counties || []}
                   name="birth_county"
                   label={"Distrito de Nascimento"}
-                  value={formBirthAddressData.birth_county}
+                  value={formBirthAddressData.birth_county || ""}
                   nextInput={nextInputBirth}
                 />
               </div>
@@ -331,7 +339,7 @@ const ModalPopupPerson = ({
                   data={countries || []}
                   name="birth_country"
                   label={"País de Nascimento"}
-                  value={formBirthAddressData.birth_country}
+                  value={formBirthAddressData.birth_country || ""}
                   nextInput={nextInputBirth}
                 />
               </div>
