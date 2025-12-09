@@ -21,7 +21,6 @@ import ModalPopupSimplePersons from "../../components/certficate/ModalPopupSimpl
 import ModalPopupSinglePerson from "../../components/certficate/ModalPopupSinglePerson";
 import ModalPopupParents from "../../components/certficate/ModalPopupParents";
 import ModalPopupDate from "../../components/certficate/ModalPopupDate";
-import { useCertificateEdit } from "../../hooks/certificate/edits/useCertificateEdit";
 import { useCertificateUpdateDocument } from "../../hooks/certificate/edits/useCertificateUpdateDocument";
 
 const CertificateCreatePage = () => {
