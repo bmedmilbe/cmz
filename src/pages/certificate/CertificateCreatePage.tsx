@@ -210,9 +210,9 @@ const CertificateCreatePage = () => {
     };
 
     if (
-      [1, 5, 6, 7, 9, 10, 11, 15, 16, 17, 19, 20, 21, 22, 30, 34].includes(
-        titleType?.id || 0
-      )
+      [
+        1, 5, 6, 7, 9, 10, 11, 15, 16, 17, 19, 20, 21, 22, 30, 34, 68, 35,
+      ].includes(titleType?.id || 0)
     ) {
       registerModelOne(body);
     } else if ([3, 12, 13].includes(titleType?.id || 0)) {

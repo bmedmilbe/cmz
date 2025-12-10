@@ -125,8 +125,6 @@ const ModalPopupPerson = ({
     }
   }, [person]);
 
-  // console.log(person);
-
   const mariageStatus = [
     { id: "S", title: "Solteiro(a)" },
     { id: "M", title: "Casado(a)" },

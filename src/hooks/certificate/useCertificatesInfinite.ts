@@ -66,7 +66,7 @@ const useCertificatesInfinite = (type: number) => {
         params: {
           ...queryParam.query,
           limit: 10,
-          offset: queryParam.page * 10,
+          offset: queryParam.page == 1 ? undefined : (queryParam.page - 1) * 10,
           ["type__certificate_type" + (type == 2 ? "__gt" : "")]: type,
         },
       });
