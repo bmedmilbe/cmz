@@ -1,7 +1,6 @@
 import { type Person } from "../../hooks/certificate/usePersons";
 import usePersonsInfinite from "../../hooks/certificate/usePersonsInfinite";
 import usePersonStoreQuery from "../../stores/usePersonStoreQuery";
-import Spinner from "../Spinner";
 import NaviagatorList from "./NaviagatorList";
 
 interface Props {
@@ -11,11 +10,9 @@ const PersonList = ({ handelPerson }: Props) => {
   const pageSize: number = 10;
   const { setPage, page } = usePersonStoreQuery((s) => s);
 
-  const { data, isFetching } = usePersonsInfinite();
+  const { data } = usePersonsInfinite();
 
   const total = data?.count;
-
-  if (isFetching) return <Spinner />;
 
   return (
     <>

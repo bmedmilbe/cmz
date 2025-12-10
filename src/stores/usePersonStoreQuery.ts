@@ -7,6 +7,7 @@ export interface PersonStoreQuery {
   query: {
     search: string | undefined;
     ordering: string | undefined;
+    status: string | undefined;
   };
 
   setSearch: (value: string) => void;
@@ -23,6 +24,7 @@ const usePersonStoreQuery = create<PersonStoreQuery>((set) => ({
   query: {
     search: undefined,
     ordering: undefined,
+    status: undefined,
   },
   setSearch: (value: string) =>
     set((store: PersonStoreQuery) => ({

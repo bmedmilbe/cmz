@@ -9,13 +9,13 @@ export interface queryType {
   status: string;
 }
 const CertificateFilter = () => {
-  const { setSearch, setOrdering, setStatus, resetPage } =
+  const { setSearch, query, setOrdering, setStatus, resetPage } =
     useCerificateStoreQuery();
 
   const [formData, setFormData] = useState<queryType>({
-    search: "",
-    ordering: 0,
-    status: "",
+    search: query.search || "",
+    ordering: parseInt(query.ordering || "0") || 0,
+    status: query.status || "",
   });
   const orderOptions = [
     { id: 0, title: "Mais Recente" },

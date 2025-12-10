@@ -5,11 +5,13 @@ import type { queryType } from "./CertificateFilter";
 import SelectedArea from "../forms/SelectedArea";
 
 const PersonFilter = () => {
-  const { resetPage, setOrdering, setSearch } = usePersonStoreQuery((s) => s);
+  const { resetPage, query, setOrdering, setSearch } = usePersonStoreQuery(
+    (s) => s
+  );
   const [formData, setFormData] = useState<queryType>({
-    search: "",
-    ordering: 0,
-    status: "",
+    search: query.search || "",
+    ordering: parseInt(query.ordering || "0") || 0,
+    status: query.status || "",
   });
   const orderOptions = [
     { id: 0, title: "Mais Recente" },
@@ -65,7 +67,7 @@ const PersonFilter = () => {
                   <div className="col-sm-12 col-md-4">
                     <SelectedArea
                       name="ordering"
-                      label={"Buscar"}
+                      label={"Ordenar"}
                       value={formData.ordering}
                       nextInput={nextInputChange}
                       data={orderOptions}
