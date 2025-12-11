@@ -18,6 +18,7 @@ import RegisterPage from "./pages/auth/RegisterPage";
 import CertificatesPage from "./pages/certificate/CertificatesPage";
 import PersonsPage from "./pages/certificate/PersonsPage";
 import CertificateCreatePage from "./pages/certificate/CertificateCreatePage";
+import SettingsPage from "./pages/SettingsPage";
 
 const routes = createBrowserRouter([
   {
@@ -38,12 +39,12 @@ const routes = createBrowserRouter([
       { path: "assemblys/", element: <AssemblysPage /> },
       { path: "assemblys/", element: <AssemblysPage /> },
       { path: "orgs/:slug", element: <OrgPage /> },
-      { path: "certificates/:type", element: <CertificatesPage /> },
+      // { path: "certificates/:type", element: <CertificatesPage /> },
     ],
   },
   {
     path: "/certificates/",
-    element: <Layout />,
+    element: <PrivateLayout />,
     children: [
       { path: "list/:type", element: <CertificatesPage /> },
       { path: "persons/:type", element: <PersonsPage /> },
@@ -52,6 +53,11 @@ const routes = createBrowserRouter([
         element: <CertificateCreatePage />,
       },
     ],
+  },
+  {
+    path: "/settings/",
+    element: <PrivateLayout />,
+    children: [{ index: true, element: <SettingsPage /> }],
   },
   {
     element: <PrivateLayout />,
