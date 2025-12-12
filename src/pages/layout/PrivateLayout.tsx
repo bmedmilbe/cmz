@@ -1,31 +1,78 @@
-import { Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Navigate, Outlet } from "react-router-dom";
 import useMe, { type Customer } from "../../hooks/useMe";
-import Layout from "./Layout";
-
-const PrivateLayout = () => {
-  const { data, isLoading } = useMe<Customer>();
-  // console.log(data);
-
-  // if (data) return <Layout />;
-  // if (!data) return <Navigate to="/login" />;
+import Header from "../../components/layout/header/Header";
+import Breadcrumb from "../../components/layout/header/Breadcrumb";
+import Footer from "../../components/layout/footer/Footer";
+import MobileMenu from "../../components/layout/MobileMenu";
+import SearchPopup from "../../components/layout/SearchPopup";
+interface Props {
+  breadcrumbTitle?: string;
+  breadcrumbImage?: string;
+}
+const PrivateLayout = ({ breadcrumbTitle, breadcrumbImage }: Props) => {
   if (!localStorage.getItem("access")) return <Navigate to="/login" />;
 
-  if (!isLoading) {
-    if (data) return <Layout />;
-    return <Navigate to="/login" />;
-  } else {
-    return (
-      <div className="position-relative vh-100">
-        <div className="position-absolute top-50 start-50 translate-middle">
-          <div className="spinner-border text-dark" role="status">
-            <span className="visually-hidden">Loading...</span>
+  // Moblile Menu
+  const [isMobileMenu, setMobileMenu] = useState(false);
+  const handleMobileMenu = () => {
+    setMobileMenu(!isMobileMenu);
+    window.scrollTo(window.scrollY, window.scrollY - 90);
+  };
+
+  const { data } = useMe<Customer>();
+  if (!localStorage.getItem("access")) return <Navigate to="/login" />;
+
+  const handleLogout = () => {
+    localStorage.removeItem("access");
+    location.href = "/";
+  };
+
+  // Scroll Header
+  const [scroll, setScroll] = useState<number | boolean>(0);
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      const scrollCheck = window.scrollY > 100;
+      if (scrollCheck !== scroll) {
+        setScroll(scrollCheck);
+      }
+    });
+  });
+  return (
+    <>
+      <div
+        id="page"
+        className={`page_wapper hfeed site fixed-header floating-menu ${
+          scroll ? "fixed-header floating-menu" : ""
+        } ${isMobileMenu ? "crt_mobile_menu-visible" : ""}`}
+      >
+        <div id="wrapper_full" className="content_all_warpper">
+          <Header
+            handleMobileMenu={handleMobileMenu}
+            customer={data}
+            handleLogout={handleLogout}
+          />
+
+          <Breadcrumb
+            breadcrumbImage={breadcrumbImage}
+            breadcrumbTitle={breadcrumbTitle}
+          />
+
+          <div id="content" className="site-content pd_top_20">
+            <Outlet />
           </div>
         </div>
-      </div>
-    );
-  }
+        <Footer />
 
-  // return !isLoading && data ? <Layout /> : ;
+        <MobileMenu
+          handleMobileMenu={handleMobileMenu}
+          handleLogout={handleLogout}
+          customer={data}
+        />
+        <SearchPopup />
+      </div>
+    </>
+  );
 };
 
 export default PrivateLayout;

@@ -39,13 +39,13 @@ const routes = createBrowserRouter([
       { path: "assemblys/", element: <AssemblysPage /> },
       { path: "assemblys/", element: <AssemblysPage /> },
       { path: "orgs/:slug", element: <OrgPage /> },
-      // { path: "certificates/:type", element: <CertificatesPage /> },
     ],
   },
   {
     path: "/certificates/",
     element: <PrivateLayout />,
     children: [
+      { path: ":type", element: <CertificatesPage /> },
       { path: "list/:type", element: <CertificatesPage /> },
       { path: "persons/:type", element: <PersonsPage /> },
       {
