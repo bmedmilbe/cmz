@@ -75,8 +75,7 @@ const useCertificatesInfinite = (type: number) => {
       "certificates",
       {
         query: { ...queryParam.query, page: queryParam.page },
-        type: type,
-        // type__certificate_type: type,
+        type__certificate_type: type,
       },
     ],
     keepPreviousData: true,
