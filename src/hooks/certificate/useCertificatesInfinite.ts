@@ -67,7 +67,7 @@ const useCertificatesInfinite = (type: number) => {
           ...queryParam.query,
           limit: 10,
           page: queryParam.page == 1 ? undefined : queryParam.page,
-          ["type__certificate_type" + (type == 2 ? "__gte" : "")]: type,
+          ["type__certificate_type" + (type == 2 ? "__gt" : "")]: type == 2 ? 1:type,
         },
       });
     },
@@ -75,7 +75,8 @@ const useCertificatesInfinite = (type: number) => {
       "certificates",
       {
         query: { ...queryParam.query, page: queryParam.page },
-        type__certificate_type: type,
+        type: type,
+        // type__certificate_type: type,
       },
     ],
     keepPreviousData: true,
