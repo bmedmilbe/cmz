@@ -1,69 +1,46 @@
-# React + TypeScript + Vite
+# CMZ - Me-Zochi Council Residency & Certification Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mission-critical government platform engineered to digitize legal certifications for the citizens of the Me-Zochi Council in São Tomé e Príncipe.
 
-Currently, two official plugins are available:
+## 🔗 Live Deployment
+- **Official Website:** [https://www.cmz.st/](https://www.cmz.st/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+screenshot_061203
+## 📸 Platform Showcase
+Below are the key interfaces of the CMZ digital government portal:
 
-## Expanding the ESLint configuration
+| **1. Officer Dashboard (Translated)** | **2. Certificate Preview** | **3. Public News Feed** |
+| :---: | :---: | :---: |
+| ![Officer Dashboard](https://www.cmz.st/screenshots/screenshot_061145.png) | ![Certificate Preview](https://www.cmz.st/screenshots/screenshot_061203.png) | ![Public News](https://www.cmz.st/screenshots/screenshot_061229.png) |
+| *Administrative hub for verifying citizen requests.* | *Live generated legal document for residency/banking.* | *Transparency portal for council-to-citizen communication.* |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Project Overview
+Successfully transitioned the local government from legacy paper-based systems to a secure, end-to-end digital workflow. This platform serves as a transparent communication bridge between the Council and its citizens.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### **Automated Legal Services:**
+Citizens can securely request, manage, and update the following:
+- **Residency:** Residency Certificates & Family Member Assistance.
+- **Financial:** Opening Bank Accounts & Bank Account Updates.
+- **Legal/Academic:** Legal Assistance, Scholarships, and Internal Grant applications.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📊 Business Impact
+- **Digital Transformation:** Replaced manual, error-prone processes with a secure digital workflow.
+- **Infrastructure Efficiency:** Achieved a **60% reduction in infrastructure overhead** through centralized logic management.
+- **Data Integrity:** Utilized strict isolation protocols within a shared Django kernel to safeguard sensitive government records.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Tech Stack
+- **Backend:** Python / Django (Shared Kernel Architecture)
+- **Database:** PostgreSQL
+- **Frontend:** React (Vite), TypeScript, Bootstrap
+- **Hosting:** Heroku (API) & Vercel (UI)
+- **Environment:** Pipenv
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔧 Installation & Local Setup
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Clone the Repo:**
+   ```bash
+   git clone [https://github.com/bmedmilbe/cmz.git](https://github.com/bmedmilbe/cmz.git)
+   cd cmz
