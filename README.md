@@ -6,7 +6,7 @@ A mission-critical government platform engineered to digitize legal certificatio
 - **Official Website:** [https://www.cmz.st/](https://www.cmz.st/)
 
 ---
-screenshot_061203
+
 ## 📸 Platform Showcase
 Below are the key interfaces of the CMZ digital government portal:
 
