@@ -16,7 +16,7 @@ import type { Universitie } from "./useUniversities";
 export interface MetaData {
   countries:Country[],
   idtypes:IdType[],
-  institutions:Instituition[],
+  intituitions:Instituition[],
   streets:Street[],
   towns:Town[],
   countys:County[],
