@@ -3,14 +3,12 @@ import {
   useStreetAdd,
   type StreetEntry,
 } from "../../hooks/certificate/adds/extras/useStreetAdd";
-import useStreets from "../../hooks/certificate/useStreets";
-import useTowns from "../../hooks/certificate/useTowns";
 import StreetEdit from "./StreetEdit";
+import useMetaData from "../../hooks/certificate/useMetaData";
 
 const StreetAdd = () => {
-  const { data: towns } = useTowns();
+  const {data: metadata} = useMetaData()
 
-  const { data: streets } = useStreets();
 
   const [saved, setSaved] = useState(false);
   const [formData, setFormData] = useState<StreetEntry>({
@@ -79,7 +77,7 @@ const StreetAdd = () => {
               onChange={nextInputChange}
             >
               <option value={-1}>Selecionar...</option>
-              {towns?.map((item) => (
+              {metadata?.towns?.map((item) => (
                 <option value={item.id} key={item.id}>
                   {item.name}
                 </option>
@@ -100,7 +98,7 @@ const StreetAdd = () => {
           </div>
         </div>
       </form>
-      {streets?.map((item, k) => (
+      {metadata?.streets?.map((item, k) => (
         <StreetEdit street={item} key={k} />
       ))}
     </>

@@ -18,4 +18,4 @@ export interface BirthAdddressSaving {
   birth_country?: number | string;
 }
 export const useBirthAdddressAdd = <BirthAdddress>() =>
-  useCertificatePost<BirthAdddress>("birthadddress/", ["birthadddress"]);
+  useCertificatePost<BirthAdddress>("birthadddress", ["birthadddress"]);

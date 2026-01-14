@@ -8,5 +8,5 @@ export interface CountyEntry {
 }
 export const useCountyAdd = <CountyEntry>(id?: number) =>
   id
-    ? useCertificatePut<CountyEntry>(`countys/${id}/`, ["countys"])
-    : useCertificatePost<CountyEntry>(`countys/`, ["countys"]);
+    ? useCertificatePut<CountyEntry>(`countys/${id}`, ["countys"])
+    : useCertificatePost<CountyEntry>(`countys`, ["countys"]);

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ModalPopupPerson from "./ModalPopupPerson";
 import type { Person } from "../../hooks/certificate/usePersons";
-import useTitles from "../../hooks/certificate/useTitles";
 import ModalPopupCreateOptions from "./ModalPopupCreateOptions";
+import useMetaData from "../../hooks/certificate/useMetaData";
 
 interface Props {
   page: string;
@@ -14,7 +14,9 @@ const MainNavCertificate = ({ page, type }: Props) => {
   const router = useNavigate();
 
   const [isTitlesPopup, setIsTitlesPopup] = useState(false);
-  const { data: titles } = useTitles();
+
+  const {data: metadata} = useMetaData()
+
   const [isPersonPopup, setIsPersonPopup] = useState(false);
   const [person, setPerson] = useState<Person | undefined>();
 
@@ -85,7 +87,7 @@ const MainNavCertificate = ({ page, type }: Props) => {
         handelTitlesPopup={handelTitlesPopup}
         setIsTitlesPopup={setIsTitlesPopup}
         titles={
-          titles?.filter((c) => {
+          metadata?.certificateTitles?.filter((c) => {
             if (type == 1) {
               return c.certificate_type.id == 1;
             }

@@ -1,13 +1,5 @@
 import React, { useState } from "react";
 import useModelStore from "../../stores/useModelStores";
-import useInstituitions from "../../hooks/certificate/useInstituitions";
-import useUniversities from "../../hooks/certificate/useUniversities";
-import useCountries from "../../hooks/certificate/useCountries";
-import useStreets from "../../hooks/certificate/useStreets";
-import useBuildings from "../../hooks/certificate/useBuildings";
-import useCemiterios from "../../hooks/certificate/useCemiterio";
-import useCovals from "../../hooks/certificate/useCovals";
-import useChanges from "../../hooks/certificate/useChanges";
 import { useNavigate, useParams } from "react-router-dom";
 import useTitle from "../../hooks/certificate/useTitle";
 import type { CertificateSaving } from "../../hooks/certificate/useCertificatesInfinite";
@@ -22,18 +14,13 @@ import ModalPopupSinglePerson from "../../components/certficate/ModalPopupSingle
 import ModalPopupParents from "../../components/certficate/ModalPopupParents";
 import ModalPopupDate from "../../components/certficate/ModalPopupDate";
 import { useCertificateUpdateDocument } from "../../hooks/certificate/edits/useCertificateUpdateDocument";
+import useMetaData from "../../hooks/certificate/useMetaData";
 
 const CertificateCreatePage = () => {
   const { mainPerson, secondaryPerson } = useModelStore((s) => s.modelForm);
-  const { data: instituitions } = useInstituitions();
-  const { data: universities } = useUniversities();
-  const { data: countries } = useCountries();
+  
+  const {data: metadata}=useMetaData();
 
-  const { data: streets } = useStreets();
-  const { data: buildings } = useBuildings();
-  const { data: cemiterios } = useCemiterios();
-  const { data: covals } = useCovals();
-  const { data: changes } = useChanges();
 
   const { titleId, certificateId } = useParams<{
     titleId: string;
@@ -310,7 +297,7 @@ const CertificateCreatePage = () => {
                                 onChange={nextInputChange}
                               >
                                 <option value={-1}>Selecionar...</option>
-                                {instituitions?.map((item) => (
+                                {metadata?.institutions?.map((item) => (
                                   <option value={item.id} key={item.id}>
                                     {item.name}
                                   </option>
@@ -329,7 +316,7 @@ const CertificateCreatePage = () => {
                                 onChange={nextInputChange}
                               >
                                 <option value={-1}>Selecionar...</option>
-                                {universities?.map((item) => (
+                                {metadata?.universities?.map((item) => (
                                   <option value={item.id} key={item.id}>
                                     {item.name}
                                   </option>
@@ -383,7 +370,7 @@ const CertificateCreatePage = () => {
                                 required
                               >
                                 <option value={-1}>Selecionar...</option>
-                                {countries?.map((item) => (
+                                {metadata?.countries?.map((item) => (
                                   <option value={item.id} key={item.id}>
                                     {item.name}
                                   </option>
@@ -455,7 +442,7 @@ const CertificateCreatePage = () => {
                                 required
                               >
                                 <option value={-1}>Selecionar...</option>
-                                {covals?.map((item) => (
+                                {metadata?.covals?.map((item) => (
                                   <option value={item.id} key={item.id}>
                                     {item.number}
                                     {item.nick_number
@@ -479,7 +466,7 @@ const CertificateCreatePage = () => {
                                   required
                                 >
                                   <option value={-1}>Selecionar...</option>
-                                  {changes?.map((item) => (
+                                  {metadata?.changes?.map((item) => (
                                     <option value={item.id} key={item.id}>
                                       {item.name}
                                     </option>
@@ -506,7 +493,7 @@ const CertificateCreatePage = () => {
                                 required
                               >
                                 <option value={-1}>Selecionar...</option>
-                                {buildings?.map((item) => (
+                                {metadata?.buildings?.map((item) => (
                                   <option value={item.id} key={item.id}>
                                     {item.name}
                                   </option>
@@ -526,7 +513,7 @@ const CertificateCreatePage = () => {
                                 required
                               >
                                 <option value={-1}>Selecionar...</option>
-                                {streets?.map((item) => (
+                                {metadata?.streets?.map((item) => (
                                   <option value={item.id} key={item.id}>
                                     {item.name}
                                   </option>
@@ -552,7 +539,7 @@ const CertificateCreatePage = () => {
                                 required
                               >
                                 <option value={-1}>Selecionar...</option>
-                                {streets?.map((item) => (
+                                {metadata?.streets?.map((item) => (
                                   <option value={item.id} key={item.id}>
                                     {item.name}
                                   </option>
@@ -616,7 +603,7 @@ const CertificateCreatePage = () => {
                                 required
                               >
                                 <option value={-1}>Selecionar...</option>
-                                {streets?.map((item) => (
+                                {metadata?.streets?.map((item) => (
                                   <option value={item.id} key={item.id}>
                                     {item.name}
                                   </option>
@@ -670,7 +657,7 @@ const CertificateCreatePage = () => {
                                 required
                               >
                                 <option value={-1}>Selecionar...</option>
-                                {cemiterios?.map((item) => (
+                                {metadata?.cemiterios?.map((item) => (
                                   <option value={item.id} key={item.id}>
                                     {item.name}
                                   </option>
@@ -690,7 +677,7 @@ const CertificateCreatePage = () => {
                                 required
                               >
                                 <option value={-1}>Selecionar...</option>
-                                {streets?.map((item) => (
+                                {metadata?.streets?.map((item) => (
                                   <option value={item.id} key={item.id}>
                                     {item.name}
                                   </option>
