@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from "react";
 import type { Person, PersonSend } from "../../hooks/certificate/usePersons";
-import useCountries from "../../hooks/certificate/useCountries";
-import useIdTypes from "../../hooks/certificate/useIdTypes";
-import useInstituitions from "../../hooks/certificate/useInstituitions";
 
-import useTowns from "../../hooks/certificate/useTowns";
-import useCounties from "../../hooks/certificate/useCounties";
 import { useHouseAdd } from "../../hooks/certificate/adds/useHouseAdd";
 import type { HouseSaving } from "../../hooks/certificate/useHouses";
 import {
   useBirthAdddressAdd,
   type BirthAdddressSaving,
 } from "../../hooks/certificate/adds/useBirthAdddressAdd";
-import useStreets from "../../hooks/certificate/useStreets";
 import { usePersonAdd } from "../../hooks/certificate/adds/usePersonAdd";
 import { usePersonEdit } from "../../hooks/certificate/edits/usePersonEdit";
 import InputArea from "../forms/InputArea";
 import NoSelectedArea from "../forms/NoSelectedArea";
 import SelectedArea from "../forms/SelectedArea";
 import NoInputArea from "../forms/NoInputArea";
+import useMetaData from "../../hooks/certificate/useMetaData";
 
 interface Props {
   isPersonPopup: boolean;
@@ -30,12 +25,14 @@ const ModalPopupPerson = ({
   person,
   setIsPersonPopup,
 }: Props) => {
-  const { data: countries } = useCountries();
-  const { data: idTypes } = useIdTypes();
-  const { data: instituitions } = useInstituitions();
-  const { data: streets } = useStreets();
-  const { data: towns } = useTowns();
-  const { data: counties } = useCounties();
+  
+
+  const {data: metadata}=useMetaData();
+  // if (isLoading) return;
+  // if(!isLoading){
+  //   console.log(metadata)
+  // }
+  
 
   useEffect(() => {
     if (person) {
@@ -307,7 +304,7 @@ const ModalPopupPerson = ({
               </div>
               <div className="col-sm-4">
                 <NoSelectedArea
-                  data={streets || []}
+                  data={metadata?.streets || []}
                   name="birth_street"
                   label={"Local de Nascimento"}
                   value={formBirthAddressData.birth_street || ""}
@@ -316,7 +313,7 @@ const ModalPopupPerson = ({
               </div>
               <div className="col-sm-4">
                 <NoSelectedArea
-                  data={towns || []}
+                  data={metadata?.towns || []}
                   name="birth_town"
                   label={"Cidade de Nascimento"}
                   value={formBirthAddressData?.birth_town || ""}
@@ -325,7 +322,7 @@ const ModalPopupPerson = ({
               </div>
               <div className="col-sm-4">
                 <NoSelectedArea
-                  data={counties || []}
+                  data={metadata?.countys || []}
                   name="birth_county"
                   label={"Distrito de Nascimento"}
                   value={formBirthAddressData.birth_county || ""}
@@ -334,7 +331,7 @@ const ModalPopupPerson = ({
               </div>
               <div className="col-sm-4">
                 <SelectedArea
-                  data={countries || []}
+                  data={metadata?.countries || []}
                   name="birth_country"
                   label={"País de Nascimento"}
                   value={formBirthAddressData.birth_country || ""}
@@ -353,7 +350,7 @@ const ModalPopupPerson = ({
               </div>
               <div className="col-sm-4">
                 <SelectedArea
-                  data={idTypes || []}
+                  data={metadata?.idtypes || []}
                   label={"Doc. de Identificação"}
                   name="id_type"
                   value={formData.id_type}
@@ -362,7 +359,7 @@ const ModalPopupPerson = ({
               </div>
               <div className="col-sm-4">
                 <SelectedArea
-                  data={instituitions || []}
+                  data={metadata?.intituitions || []}
                   label={"Local de Emissão"}
                   name="id_issue_local"
                   value={formData.id_issue_local}
@@ -371,7 +368,7 @@ const ModalPopupPerson = ({
               </div>
               <div className="col-sm-4">
                 <SelectedArea
-                  data={countries || []}
+                  data={metadata?.countries || []}
                   label={"País de Emissão"}
                   name="id_issue_country"
                   value={formData.id_issue_country}
@@ -380,7 +377,7 @@ const ModalPopupPerson = ({
               </div>
               <div className="col-sm-4">
                 <SelectedArea
-                  data={countries || []}
+                  data={metadata?.countries || []}
                   label={"Nacionalidade"}
                   name="nationality"
                   value={formData.nationality}
@@ -447,7 +444,7 @@ const ModalPopupPerson = ({
               </div>
               <div className="col-sm-4">
                 <SelectedArea
-                  data={streets || []}
+                  data={metadata?.streets || []}
                   label={"Lacalidade"}
                   name="street"
                   value={formHouseData.street}

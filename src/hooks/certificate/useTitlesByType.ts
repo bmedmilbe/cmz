@@ -12,7 +12,7 @@ const useTitlesByType = (type?: number) => {
     value = 1;
   }
   return useCertificateGet<CertificateTitle>(
-    `titles/?certificate_type${end}=${value}`,
+    `titles?certificate_type${end}=${value}`,
     `titlesbytype${type || ""}`
   );
 };

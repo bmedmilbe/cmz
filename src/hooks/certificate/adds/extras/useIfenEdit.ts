@@ -4,4 +4,4 @@ export interface IfenEntry {
   size: number;
 }
 export const useIfenEdit = <IfenEntry>(id: number) =>
-  useCertificatePut<IfenEntry>(`ifens/${id}/`, ["ifens"]);
+  useCertificatePut<IfenEntry>(`ifens/${id}`, ["ifens"]);

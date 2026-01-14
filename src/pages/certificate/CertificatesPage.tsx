@@ -24,7 +24,6 @@ const CertificatesPage = () => {
   const [certificate, setCertificate] = useState<Certificate>();
 
   const handleCertificate = (certificate: Certificate) => {
-    console.log(certificate);
     setCertificate(certificate);
     setIsDocumentPopup(true);
   };

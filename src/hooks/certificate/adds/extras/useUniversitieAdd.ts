@@ -7,7 +7,7 @@ export interface UniversitieEntry {
 }
 export const useUniversitieAdd = <UniversitieEntry>(id?: number) =>
   id
-    ? useCertificatePut<UniversitieEntry>(`universities/${id}/`, [
+    ? useCertificatePut<UniversitieEntry>(`universities/${id}`, [
         "universities",
       ])
-    : useCertificatePost<UniversitieEntry>(`universities/`, ["universities"]);
+    : useCertificatePost<UniversitieEntry>(`universities`, ["universities"]);

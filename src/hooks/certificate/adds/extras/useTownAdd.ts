@@ -8,5 +8,5 @@ export interface TownEntry {
 }
 export const useTownAdd = <TownEntry>(id?: number) =>
   id
-    ? useCertificatePut<TownEntry>(`towns/${id}/`, ["towns"])
-    : useCertificatePost<TownEntry>(`towns/`, ["towns"]);
+    ? useCertificatePut<TownEntry>(`towns/${id}`, ["towns"])
+    : useCertificatePost<TownEntry>(`towns`, ["towns"]);

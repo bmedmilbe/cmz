@@ -2,12 +2,14 @@ import React, { useState } from "react";
 
 import { useCountryAdd } from "../../hooks/certificate/adds/extras/useCountryAdd";
 import CountryEdit from "./CountryEdit";
-import useCountries, {
+import  {
   type Country,
 } from "../../hooks/certificate/useCountries";
+import useMetaData from "../../hooks/certificate/useMetaData";
 
 const CountryAdd = () => {
-  const { data: countries } = useCountries();
+  const {data: metadata}=useMetaData();
+
   const [saved, setSaved] = useState(false);
   const [formData, setFormData] = useState<Country>({
     id: 0,
@@ -73,7 +75,7 @@ const CountryAdd = () => {
         </div>
       </form>
       <hr />
-      {countries?.map((item, k) => (
+      {metadata?.countries?.map((item, k) => (
         <CountryEdit key={k} country={item} />
       ))}
     </>

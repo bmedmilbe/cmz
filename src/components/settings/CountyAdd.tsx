@@ -1,15 +1,14 @@
 import { useState } from "react";
-import useCounties from "../../hooks/certificate/useCounties";
-import useCountries from "../../hooks/certificate/useCountries";
 import {
   useCountyAdd,
   type CountyEntry,
 } from "../../hooks/certificate/adds/extras/useCountyAdd";
 import CountyEdit from "./CountyEdit";
+import useMetaData from "../../hooks/certificate/useMetaData";
 
 const CountyAdd = () => {
-  const { data: countries } = useCountries();
-  const { data: counties } = useCounties();
+    const {data: metadata}=useMetaData();
+
   const [saved, setSaved] = useState(false);
   const [formData, setFormData] = useState<CountyEntry>({
     name: "",
@@ -77,7 +76,7 @@ const CountyAdd = () => {
               onChange={nextInputChange}
             >
               <option value={-1}>Selecionar...</option>
-              {countries?.map((item) => {
+              {metadata?.countries?.map((item) => {
                 if (item.id == formData.country) {
                   return (
                     <option value={item.id} key={item.id} selected>
@@ -107,7 +106,7 @@ const CountyAdd = () => {
         </div>
       </form>
       <hr />
-      {counties?.map((item, k) => (
+      {metadata?.countys?.map((item, k) => (
         <CountyEdit county={item} key={k} />
       ))}
     </>

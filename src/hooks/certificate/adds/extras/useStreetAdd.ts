@@ -7,5 +7,5 @@ export interface StreetEntry {
 }
 export const useStreetAdd = <StreetEntry>(id?: number) =>
   id
-    ? useCertificatePut<StreetEntry>(`streets/${id}/`, ["streets"])
-    : useCertificatePost<StreetEntry>(`streets/`, ["streets"]);
+    ? useCertificatePut<StreetEntry>(`streets/${id}`, ["streets"])
+    : useCertificatePost<StreetEntry>(`streets`, ["streets"]);
