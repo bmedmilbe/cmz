@@ -297,7 +297,7 @@ const CertificateCreatePage = () => {
                                 onChange={nextInputChange}
                               >
                                 <option value={-1}>Selecionar...</option>
-                                {metadata?.institutions?.map((item) => (
+                                {metadata?.intituitions?.map((item) => (
                                   <option value={item.id} key={item.id}>
                                     {item.name}
                                   </option>

@@ -359,7 +359,7 @@ const ModalPopupPerson = ({
               </div>
               <div className="col-sm-4">
                 <SelectedArea
-                  data={metadata?.institutions || []}
+                  data={metadata?.intituitions || []}
                   label={"Local de Emissão"}
                   name="id_issue_local"
                   value={formData.id_issue_local}
