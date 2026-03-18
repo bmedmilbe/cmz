@@ -9,7 +9,7 @@ export interface Extra {
   picture: string;
   info: string;
   title: string;
-  beginnig: string;
+  beginning: string;
   slug: string;
   text: string;
   posted_at: string;
