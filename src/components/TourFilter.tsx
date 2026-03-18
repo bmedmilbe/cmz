@@ -34,7 +34,7 @@ const TourFilter = ({ targetTour }: Props) => {
                       <img
                         width={370}
                         height={247}
-                        src={tour.images[0]?.image}
+                        src={tour.cms_images[0]?.image}
                         className="attachment-370x330 size-370x330 wp-post-image"
                         alt="img"
                         loading="lazy"

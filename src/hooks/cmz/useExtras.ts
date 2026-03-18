@@ -9,7 +9,7 @@ export interface Extra {
   picture: string;
   info: string;
   title: string;
-  beginnig: string;
+  beginning: string;
   slug: string;
   text: string;
   posted_at: string;
@@ -18,6 +18,6 @@ export interface Extra {
   next: string;
 }
 
-const useExtras = () => useCMZGeneralAll<Extra>("extras", "extras");
+const useExtras = () => useCMZGeneralAll<Extra>("extra-docs", "extra-docs");
 
 export default useExtras;

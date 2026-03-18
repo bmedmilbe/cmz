@@ -9,7 +9,7 @@ export interface PostHome {
   picture: string;
   info: string;
   title: string;
-  beginnig: string;
+  beginning: string;
   slug: string;
   text: string;
   posted_at: string;
@@ -19,6 +19,10 @@ export interface PostHome {
 }
 
 const usePostsInfinite = (query_params: QueryParams) =>
-  useGeneralInfinite<PostHome>(query_params, "posts", "posts");
+  useGeneralInfinite<PostHome>(
+    query_params,
+    "posts?active=true&featured=&is_a_service=false&is_social_service=false&is_to_front=false",
+    "posts?active=true&featured=&is_a_service=false&is_social_service=false&is_to_front=false",
+  );
 
 export default usePostsInfinite;

@@ -13,7 +13,7 @@ const useGeneralInfinite = <T>(
   endpoint: string,
   key: string,
 ) => {
-  const apiClient = new ApiClient<T>(`${apiCMZEndpoint}/${endpoint}/`);
+  const apiClient = new ApiClient<T>(`${apiCMZEndpoint}/${endpoint}`);
   return useInfiniteQuery<ResponseA<T>>({
     queryFn: ({ pageParam = 0 }) => {
       return apiClient.getAllSecond({

@@ -16,13 +16,15 @@ export interface ServiceCMZ {
   title?: string;
 }
 const useServicesCMZ = () => {
-  const apiClient = new ApiClient<ServiceCMZ>(`${apiCMZEndpoint}/posts`);
+  const apiClient = new ApiClient<ServiceCMZ>(
+    `${apiCMZEndpoint}/posts?active=&featured=&is_a_service=true&is_social_service=&is_to_front=`,
+  );
   return useQuery({
     queryFn: () =>
       apiClient.getAll({
         params: {
           limit: 5,
-          is_cmz_service: true,
+          is_a_service: true,
           is_social_service: false,
         },
       }),

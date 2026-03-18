@@ -11,7 +11,7 @@ const instance = axios.create({
     "Content-Type": "application/json",
     authorization: jwt ? `JWT ${jwt}` : undefined,
     credentials: "include",
-    "X-Tenant-ID": "4",
+    "X-Tenant-ID": "2",
   },
 });
 
@@ -21,7 +21,7 @@ export interface ResponseA<T> {
   count: number;
   results: T[];
 }
-export const apiCMZEndpoint = "cmz";
+export const apiCMZEndpoint = "cms";
 export const apiCERTIFICATEEndpoint = "certificates";
 
 // type addId = T | addId;

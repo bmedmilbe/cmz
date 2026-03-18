@@ -18,7 +18,7 @@ export interface Tour {
   title: string;
   description: string;
   date: string;
-  images: Image[];
+  cms_images: Image[];
   slug: string;
   posted_at: string;
   location: string;
