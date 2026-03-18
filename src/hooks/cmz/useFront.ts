@@ -8,7 +8,10 @@ interface Front {
 }
 
 export const useFront = () => {
-  return useCMZGeneralAll<Front>("fronts", "fronts");
+  return useCMZGeneralAll<Front>(
+    "posts?active=&featured=&is_a_service=&is_social_service=&is_to_front=true",
+    "posts?active=&featured=&is_a_service=&is_social_service=&is_to_front=true",
+  );
 };
 
 export default useFront;

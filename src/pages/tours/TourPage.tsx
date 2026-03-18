@@ -33,13 +33,13 @@ const TourPage = () => {
   return (
     <>
       <ImageGallery
-        images={tour?.images}
+        images={tour?.cms_images}
         selectedImageIndex={selectedImageIndex}
         setSelectedImageIndex={setSelectedImageIndex}
       />
       <Breadcrumb
         breadcrumbTitle={tour?.title}
-        breadcrumbImage={tour?.images[0]?.image}
+        breadcrumbImage={tour?.cms_images[0]?.image}
       />
 
       <main id="main" className="site-main" role="main">
@@ -50,7 +50,7 @@ const TourPage = () => {
                 <p>{tour?.description}</p>
               </div>
               <div className="row images-gallery">
-                {tour?.images?.map((image, index) => {
+                {tour?.cms_images?.map((image, index) => {
                   return (
                     <div className="image-gallery-box">
                       <img

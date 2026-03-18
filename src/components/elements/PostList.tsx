@@ -39,7 +39,7 @@ const PostList = ({ postTarget }: Props) => {
                     />
                     <div className="p-2 flex-grow-1">
                       <h5 className="card-title">{item.title}</h5>
-                      <p className="card-text">{item.beginnig}</p>
+                      <p className="card-text">{item.beginning}</p>
                       <div className="d-flex justify-content-between">
                         <a href={`/posts/${item.slug}`}>
                           &rarr; Saber mais ...

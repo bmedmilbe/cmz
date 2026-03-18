@@ -18,6 +18,6 @@ export interface Extra {
   next: string;
 }
 
-const useExtras = () => useCMZGeneralAll<Extra>("extras", "extras");
+const useExtras = () => useCMZGeneralAll<Extra>("extra-docs", "extra-docs");
 
 export default useExtras;
