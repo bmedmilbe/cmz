@@ -4,7 +4,7 @@ import { type UserRegister } from "../services/authServices";
 import useAuth from "./useAuth";
 
 const useAuthRegister = () => {
-  const apiClient = new ApiClient<UserRegister>("auth/users");
+  const apiClient = new ApiClient<UserRegister>("auth/users/");
 
   const auth = useAuth();
 
