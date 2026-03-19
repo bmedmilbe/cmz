@@ -16,7 +16,7 @@ const useAuth = () => {
       // console.log(responseData);
       if (responseData?.access)
         localStorage.setItem("access", responseData?.access);
-      // location.href = "/";
+      location.href = "/";
     },
   });
 };
