@@ -2,6 +2,19 @@
 
 This is the official frontend platform for the **Mé-Zóchi District Council (CMZ)**. It operates as a specialized tenant of the **Centralized Multi-Tenant Government Kernel**, providing both public-facing information and a secure administrative back-office for municipal management.
 
+## 🔗 Live Deployment
+- **Official Website:** [www.cmz.st](https://www.cmz.st/)
+
+---
+
+## 📸 Platform Showcase
+Below are the key interfaces of the CMZ digital government portal:
+
+| **1. Officer Dashboard** | **2. Certificate Preview** | **3. Public News Feed** |
+| :---: | :---: | :---: |
+| ![Officer Dashboard](https://www.cmz.st/screenshots/screenshot_061145.png) | ![Certificate Preview](https://www.cmz.st/screenshots/screenshot_061203.png) | ![Public News](https://www.cmz.st/screenshots/screenshot_061229.png) |
+| *Administrative hub for verifying citizen requests.* | *Live generated legal document for residency/banking.* | *Transparency portal for council-to-citizen communication.* |
+
 ## 🚀 Key Engineering Highlights
 
 * **Dual-Layer Architecture:** * **Public Portal:** An institutional interface showcasing district activities, tourism, and services to citizens.
