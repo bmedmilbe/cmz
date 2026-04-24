@@ -5,13 +5,13 @@ import jwt from "./jwt";
 const instance = axios.create({
   baseURL: `${import.meta.env.VITE_BASE_URL}/`,
   timeout: 500000,
+  withCredentials: true,
   headers: {
     "X-CSRFToken": cookie,
     Accept: "application/json",
     "Content-Type": "application/json",
-    authorization: jwt ? `JWT ${jwt}` : undefined,
-    credentials: "include",
     "X-Tenant-ID": "2",
+    ...(jwt ? { Authorization: `JWT ${jwt}` } : {}),
   },
 });
 
